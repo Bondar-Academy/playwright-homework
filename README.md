@@ -1,5 +1,5 @@
 # Playwright Homework
-A tamplate to perform homework for the class "SDET with Playwright"
+A framework template to perform homework for the class "SDET with Playwright"
 
 ## Configuration
 Update .env file with a valid Bondar Academy credentials
