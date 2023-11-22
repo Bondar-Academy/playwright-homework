@@ -9,6 +9,8 @@ A framework template to perform homework for the class "SDET with Playwright"
     EMAIL='test@test.com'
     PASSWORD='Welcome1'
     ```
+3. Open a new terminal, execute command ```npm install``` to install project dependencies
+4. Run a sample test in ```homework.spec.ts``` to make sure everything is working
 
 P.S. ```.env```file is added to ```.gitignore``` so it will not be version controlled. 
 The stored credentials only be available for the local computer and will not be shared or exposed to repository.
