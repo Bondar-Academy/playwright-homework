@@ -9,6 +9,7 @@ A framework template to perform homework for the class "SDET with Playwright"
     EMAIL='test@test.com'
     PASSWORD='Welcome1'
     ```
-    
+
 P.S. ```.env```file is added to ```.gitignore``` so it will not be version controlled. 
-These credentails will be available only on the local computer
+Once you rename the file to ```.env``` the sample file will be added to deletion on the next commit,
+so it will be deleted from the GitHub and only ```.env``` file will be stored locally.
