@@ -2,7 +2,7 @@
 A framework template to perform homework for the class "SDET with Playwright"
 
 ## Configuration
-1. Rename ```.env-SAMPLE``` file to ```.env```
+1. Create ```.env``` file in the root of the project. Use the ```.env-SAMPLE``` as an example
 2. Update ```.env``` file with a valid Bondar Academy credentials
     Example:
     ```
@@ -11,5 +11,4 @@ A framework template to perform homework for the class "SDET with Playwright"
     ```
 
 P.S. ```.env```file is added to ```.gitignore``` so it will not be version controlled. 
-Once you rename the file to ```.env``` the sample file will be added to deletion on the next commit,
-so it will be deleted from the GitHub and only ```.env``` file will be stored locally.
+The stored credentials only be available for the local computer and will not be shared or exposed to repository.
