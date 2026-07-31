@@ -10,7 +10,7 @@ async function browserAuthorize(config: FullConfig){
     try {
         const data = await fs.readFile(filePath);
         user = JSON.parse(data);
-    } catch (err) {
+    } catch (err: any) {
         if (err.code === 'ENOENT') {
             console.log('User auth file does not exist, creating new file');
             user = { cookies: [], origins: [] };
@@ -30,8 +30,8 @@ async function browserAuthorize(config: FullConfig){
 
     await page.goto(baseURL!)
     if(await page.locator('.login').isVisible()){
-        await page.locator('#username').fill(process.env.EMAIL)
-        await page.locator('#password').fill(process.env.PASSWORD)
+        await page.locator('#username').fill(process.env.EMAIL!)
+        await page.locator('#password').fill(process.env.PASSWORD!)
         await page.getByRole('button', { name: 'Continue' }).click()
     }
     const tokenResponse = await page.waitForResponse("**/token")
