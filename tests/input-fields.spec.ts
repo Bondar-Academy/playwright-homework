@@ -1,15 +1,28 @@
 import test, { expect } from "@playwright/test";
-import { UpdatePetType } from "../pages/update-pet.types";
-import { NavigationPage } from "../pages/navigation-page";
-import { PageManager } from "../pages/page-manager";
 
-test.beforeEach( async({page}) => {
+test.beforeEach(async ({ page }) => {
   await page.goto('/')
 })
 
-test('Update pet type', async ({page}) => {
+test('Update petType', async ({ page }) => {
+  await page.getByText(' Pet Types').click()
+  await expect(page.getByRole('heading', { name: 'Pet Types' })).toBeVisible()
 
-  const pom = new PageManager(page)
-  await pom.navigateTo.selectPetType()
-  await pom.updatePetType.updatePetType()
+  await page.getByRole('row', { name: 'cat' }).getByRole('button', { name: 'Edit' }).click()
+  await expect(page.getByRole('heading')).toHaveText('Edit Pet Type')
+
+  await expect(page.locator('#name')).toHaveValue('cat')
+  await page.locator('#name').fill('rabbit')
+
+  await page.getByRole('button', { name: 'Update' }).click()
+  await expect(page.locator('[id="0"]')).toHaveValue('rabbit')
+
+  await page.getByRole('row', { name: 'rabbit' }).getByRole('button', { name: 'Edit' }).click()
+
+  await expect(page.locator('#name')).toHaveValue('rabbit')
+
+  await page.locator('#name').fill('cat')
+  await page.getByRole('button', { name: 'Update' }).click()
+  await expect(page.locator('[id="0"]')).toHaveValue('cat')
+
 });
